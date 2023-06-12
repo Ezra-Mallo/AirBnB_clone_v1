@@ -1,16 +1,27 @@
 <h1 align="center">0x00. AirBnB clone - The console.</h1>
-
-The console is the first segment of the AirBnB project at ALX that 
-will collectively cover fundamental concepts of higher level programming. 
-The goal of AirBnB project is to eventually deploy our server a simple copy 
-of the AirBnB Website(HBnB). A command interpreter is created in this segment 
-to manage objects for the AirBnB(HBnB) website.
-
 <p align="center">
-<img src="https://github.com/Ezra-Mallo/AirBnB_clone_v1/blob/master/images_logos/hbnb_logo.png"
-	    alt="ALX_AirBnB logo">
+	<img src="https://github.com/Ezra-Mallo/AirBnB_clone_v1/blob/master/images_logos/hbnb_logo.png"
+		    alt="ALX_AirBnB logo">
 </p>
 
+This is the first step towards building your first full web application: the AirBnB clone. This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration…
+
+create a simple flow of serialization/deserialization: Instance <-> Dictionary <-> JSON string <-> file
+create all classes used for AirBnB (User, State, City, Place…) that inherit from BaseModel
+create the first abstracted storage engine of the project: File storage.
+create all unittests to validate all our classes and storage engine
+What’s a command interpreter?
+Do you remember the Shell? It’s exactly the same but limited to a specific use-case. In our case, we want to be able to manage the objects of our project:
+
+Create a new object (ex: a new User or a new Place)
+Retrieve an object from a file, a database etc…
+Do operations on objects (count, compute stats, etc…)
+Update attributes of an object
+Destroy an object
+
+
+
+<p align="center">
 <img src="https://github.com/Ezra-Mallo/AirBnB_clone_v1/blob/master/images_logos/hbnb_stack.png"
 	    alt="ALX_AirBnB logo">
 </p>
