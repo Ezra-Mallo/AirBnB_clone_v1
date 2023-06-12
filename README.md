@@ -1,5 +1,4 @@
-<p align="center"># An AirBnB clone.</p>
-<h1 align="center">An AirBnB clone.</h1>
+<h1 align="center">0x00. AirBnB clone - The console.</h1>
 
 The console is the first segment of the AirBnB project at ALX that 
 will collectively cover fundamental concepts of higher level programming. 
@@ -8,7 +7,7 @@ of the AirBnB Website(HBnB). A command interpreter is created in this segment
 to manage objects for the AirBnB(HBnB) website.
 
 <p align="center">
-  <img src="https://github.com/Ezra-Mallo/AirBnB_clone_v1/blob/master/images_logos/hbnb_logo.png"
+  <img src="https://github.com/Ezra-Mallo/AirBnB_clone_v1/images_logos/hbnb_logo.png"
 	    alt="ALX_AirBnB logo">
 </p>
 ### Functionalities of this command interpreter:
