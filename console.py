@@ -13,7 +13,8 @@ class HBNBCommand(cmd.Cmd):
     # intro = 'Welcome to hbnb shell.\n'
     prompt = "(hnbn) "
     __classes = {
-            'BaseModel': BaseModel
+            'BaseModel': BaseModel,
+            'User': User
             }
 
     def do_EOF(self, arg):

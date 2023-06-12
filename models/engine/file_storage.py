@@ -17,6 +17,7 @@ class FileStorage:
     __objects = {}
     __classes = {
             "BaseModel": BaseModel,
+            "User": User,
             }
 
     def __init__(self):
