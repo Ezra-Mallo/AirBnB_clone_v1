@@ -4,6 +4,11 @@ import cmd
 from models import storage
 from models.base_model import BaseModel
 from models.user import User
+from models.state import State
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
@@ -14,10 +19,19 @@ class HBNBCommand(cmd.Cmd):
     # intro = 'Welcome to hbnb shell.\n'
     prompt = "(hnbn) "
     __classes = {
-            'BaseModel': BaseModel,
-            'User': User
+            "BaseModel": BaseModel,
+            "User": User,
+            "State": State,
+            "Place": Place,
+            "City": City,
+            "Amenity": Amenity,
+            "Review": Review
             }
 
+    def emptyline(self):
+        """Does Nothing."""
+        pass
+    
     def do_EOF(self, arg):
         """EOF command to exit the program"""
         return True

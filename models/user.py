@@ -1,11 +1,17 @@
 #!/usr/bin/python3
-"""User class is defined here to inherit from BaseModel"""
+"""class User is defined here to inherit from BaseModel"""
 import models
 from models.base_model import BaseModel
 
 
 class User(BaseModel):
-    """The User class is defined here"""
+    """class User inherits from BaseModel
+    Arguments:
+        email = empty string
+        password = emtpy string
+        first_name = empty string
+        last_name = empty string
+    """
 
     # public instances
     email = ""
