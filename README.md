@@ -10,6 +10,7 @@ to manage objects for the AirBnB(HBnB) website.
 <img src="https://github.com/Ezra-Mallo/AirBnB_clone_v1/blob/master/images_logos/hbnb_logo.png"
 	    alt="ALX_AirBnB logo">
 </p>
+
 ### Functionalities of this command interpreter:
 * Create a new object (ex: a new User or a new Place)
 * Retrieve an object from a file, a database etc...
@@ -31,7 +32,7 @@ to manage objects for the AirBnB(HBnB) website.
 This project is interpreted/tested on Ubuntu 14.04 LTS using python3 (version 3.4.3)
 
 ## Installation
-* Clone this repository: `git clone "https://github.com/alexaorrico/AirBnB_clone.git"`
+* Clone this repository: `git clone "https://github.com/Ezra-Mallo/AirBnB_clone_v1.git"`
 * Access AirBnb directory: `cd AirBnB_clone`
 * Run hbnb(interactively): `./console` and enter command
 * Run hbnb(non-interactively): `echo "<command>" | ./console.py`
