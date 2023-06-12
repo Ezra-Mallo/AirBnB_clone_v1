@@ -7,7 +7,7 @@ of the AirBnB Website(HBnB). A command interpreter is created in this segment
 to manage objects for the AirBnB(HBnB) website.
 
 <p align="center">
-  <img src="https://github.com/Ezra-Mallo/AirBnB_clone_v1/tree/master/images_logos/hbnb_logo.png"
+<img src="https://github.com/Ezra-Mallo/AirBnB_clone_v1/blob/master/images_logos/hbnb_logo.png"
 	    alt="ALX_AirBnB logo">
 </p>
 ### Functionalities of this command interpreter:
