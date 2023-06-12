@@ -2,7 +2,6 @@
 """User class is defined here to inherit from BaseModel"""
 import models
 from models.base_model import BaseModel
-from models.engine.file_storage import FileStorage
 
 
 class User(BaseModel):

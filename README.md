@@ -11,6 +11,9 @@ to manage objects for the AirBnB(HBnB) website.
 	    alt="ALX_AirBnB logo">
 </p>
 
+<img src="https://github.com/Ezra-Mallo/AirBnB_clone_v1/blob/master/images_logos/hbnb_stack.png"
+	    alt="ALX_AirBnB logo">
+</p>
 ### Functionalities of this command interpreter:
 * Create a new object (ex: a new User or a new Place)
 * Retrieve an object from a file, a database etc...

@@ -2,6 +2,7 @@
 import json
 import os
 from models.base_model import BaseModel
+from models.user import User
 
 
 class FileStorage:
@@ -17,7 +18,7 @@ class FileStorage:
     __objects = {}
     __classes = {
             "BaseModel": BaseModel,
-            "User": User,
+            "User": User
             }
 
     def __init__(self):
