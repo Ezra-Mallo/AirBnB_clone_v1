@@ -13,25 +13,18 @@ from models.review import Review
 
 class HBNBCommand(cmd.Cmd):
     """
-    This class is the entry point of the command interpreter:
-    """
+    This class is the entry point of the command interpreter."""
 
-    # intro = 'Welcome to hbnb shell.\n'
+    # intro = 'Welcome to hbnb shell.'
     prompt = "(hnbn) "
-    __classes = {
-            "BaseModel": BaseModel,
-            "User": User,
-            "State": State,
-            "Place": Place,
-            "City": City,
-            "Amenity": Amenity,
-            "Review": Review
-            }
+    __classes = {"BaseModel": BaseModel, "User": User, "State": State,
+                 "Place": Place,"City": City, "Amenity": Amenity,
+                 "Review": Review}
 
     def emptyline(self):
         """Does Nothing."""
         pass
-    
+
     def do_EOF(self, arg):
         """EOF command to exit the program"""
         return True
@@ -43,8 +36,7 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, arg):
         """
         Creates a new instance of BaseModel, saves it (to JSON file) and
-        prints the id. Ex: $ create BaseModel
-        """
+        prints the id. Ex: $ create BaseModel"""
         if arg == "":
             """ Check if argument was passed"""
             print("** class name missing **")
@@ -60,8 +52,8 @@ class HBNBCommand(cmd.Cmd):
     def do_show(self, arg):
         """
         Prints the string representation of an instance based on the
-        class name and id. Ex: $ show BaseModel 1234-1234-1234.
-        """
+        class name and id. Ex: $ show BaseModel 1234-1234-1234."""
+
         myArgs = arg.split()
         if len(myArgs) == 0:
             """ Check if argument was passed"""
@@ -86,8 +78,8 @@ class HBNBCommand(cmd.Cmd):
     def do_destroy(self, arg):
         """
         Delete an instance based on the class name and id.
-        Ex: $ show BaseModel 1234-1234-1234.
-        """
+        Ex: $ show BaseModel 1234-1234-1234.and"""
+
         myArgs = arg.split()
         if len(myArgs) == 0:
             """ Check if argument was passed"""
@@ -116,8 +108,9 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, arg):
         """
         Prints all string representation of all instances based or
-        not on the class name. Ex: $ all BaseModel or $ all.
-        """
+        not on the class name. Ex: $ all BaseModel or $ all."""
+
+        print(arg)
         if not arg:
             all_objects = storage.all()
             for object_id in all_objects.keys():
@@ -138,8 +131,8 @@ class HBNBCommand(cmd.Cmd):
         """
         Updates an instance based on the class name and id by adding or
         updating attribute (save the change into the JSON file).
-        Ex: $ update BaseModel 1234-1234-1234 email "aibnb@mail.com".
-        """
+        Ex: $ update BaseModel 1234-1234-1234 email "aibnb@mail.com"""
+
         myArgs = arg.split()
         if len(myArgs) == 0:
             """ Check if argument was passed"""
@@ -173,7 +166,24 @@ class HBNBCommand(cmd.Cmd):
                 storage.save()
             else:
                 print("** no instance found **")
-
+    def all(self, line):
+        """all method up be called by default,
+        parses the regex and run if it matches.
+        """
+        my_re = r"({})?\.?(all\(\))?".format("|".join(self.model_dict.keys()))
+        regex = re.compile(my_re)
+        model, cond = regex.search(line).groups()
+        if not cond:
+            return False
+        if cond and model in self.model_dict.keys():
+            result = storage.all()
+            for k, v in result.items():
+                if k.split(".")[0] == model:
+                    print(v)
+            return True
+        else:
+            print("** class doesn't exist **")
+            return True
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
