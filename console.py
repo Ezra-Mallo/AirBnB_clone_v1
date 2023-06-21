@@ -75,6 +75,58 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** no instance found **")
 
+
+
+
+    def do_show(self, args):
+        """ Method to show an individual object """
+        new = args.partition(" ")
+        c_name = new[0]
+        c_id = new[2]
+
+        # guard against trailing args
+        if c_id and ' ' in c_id:
+            c_id = c_id.partition(' ')[0]
+
+        if not c_name:
+            print("** class name missing **")
+            return
+
+        if c_name not in HBNBCommand.classes:
+            print("** class doesn't exist **")
+            return
+
+        if not c_id:
+            print("** instance id missing **")
+            return
+
+        key = c_name + "." + c_id
+        try:
+            print(storage._FileStorage__objects[key])
+        except KeyError:
+            print("** no instance found **")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     def do_destroy(self, arg):
         """
         Delete an instance based on the class name and id.
@@ -108,24 +160,22 @@ class HBNBCommand(cmd.Cmd):
     def do_all(self, arg):
         """
         Prints all string representation of all instances based or
-        not on the class name. Ex: $ all BaseModel or $ all."""
-
-        print(arg)
-        if not arg:
-            all_objects = storage.all()
-            for object_id in all_objects.keys():
-                object = all_objects[object_id]
-                print(object)
-            return
-
-        if arg not in HBNBCommand.__classes:
-            """ Check if class name argument was passed"""
-            print("** class doesn't exist **")
+        not on the class name. Ex: $ all BaseModel or $ all.
+        """
+        my_print_list = []
+        if arg:
+            # This splits arg and assigns index 0 of the split to arg
+            arg = arg.split(' ')[0]
+            if arg not in HBNBCommand.__classes:
+                print("** class doesn't exist **")
+                return False
+            for key, value in storage.all().items():
+                if key.split('.')[0] == arg:
+                    my_print_list.append(str(value))
         else:
-            all_objects = storage.all()
-            for object_id in all_objects.keys():
-                object = all_objects[object_id]
-                print(object)
+            for key, value in storage.all().items():
+                my_print_list.append(str(value))
+        print(my_print_list)
 
     def do_update(self, arg):
         """
@@ -161,29 +211,33 @@ class HBNBCommand(cmd.Cmd):
                 # or
                 instance_pointer = Class_Instance[instance_Key]
                 setattr(instance_pointer, attr_key, attr_val)
+
                 # to save, use: class_instance[instance_key].save
                 # or
                 storage.save()
             else:
                 print("** no instance found **")
-    def all(self, line):
-        """all method up be called by default,
-        parses the regex and run if it matches.
-        """
-        my_re = r"({})?\.?(all\(\))?".format("|".join(self.model_dict.keys()))
-        regex = re.compile(my_re)
-        model, cond = regex.search(line).groups()
-        if not cond:
-            return False
-        if cond and model in self.model_dict.keys():
-            result = storage.all()
-            for k, v in result.items():
-                if k.split(".")[0] == model:
-                    print(v)
-            return True
-        else:
-            print("** class doesn't exist **")
-            return True
+
+#    def all(self, line):
+#        """all method up be called by default,
+#        parses the regex and run if it matches.
+#        """
+#        print("I am here")
+#        my_re = r"({})?\.?(all\(\))?".format("|".join(self.model_dict.keys()))
+#        regex = re.compile(my_re)
+#        model, cond = regex.search(line).groups()
+#        if not cond:
+#            return False
+#        if cond and model in self.model_dict.keys():
+#            result = storage.all()
+#            for k, v in result.items():
+#                if k.split(".")[0] == model:
+#                    print(v)
+#            return True
+#        else:
+#            print("** class doesn't exist **")
+#            return True
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
