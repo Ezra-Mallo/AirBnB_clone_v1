@@ -1,4 +1,5 @@
-<h1 align="center">0x00. AirBnB clone - The console.</h1>
+# 0x00. AirBnB clone - The console. | [Next](https://github.com/Ezra-Mallo/AirBnB_clone_v2/blob/master/README.md)
+
 <p align="center">
 <img src="https://github.com/Ezra-Mallo/AirBnB_clone_v1/blob/master/images_logos/hbnb_logo.png"
 	    alt="ALX_AirBnB logo">
