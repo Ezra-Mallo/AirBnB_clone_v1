@@ -1,6 +1,5 @@
 #!/bin/usr/env python3
 """class City defined here to inherit from BaseModel"""
-
 import models
 from models.base_model import BaseModel
 

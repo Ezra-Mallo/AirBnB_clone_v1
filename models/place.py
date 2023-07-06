@@ -1,9 +1,7 @@
 #!/bin/usr/env python3
 """class Place is defined here to inherit from BaseModel"""
-
 import models
 from models.base_model import BaseModel
-
 
 class Place(BaseModel):
     """

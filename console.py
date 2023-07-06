@@ -54,78 +54,25 @@ class HBNBCommand(cmd.Cmd):
         Prints the string representation of an instance based on the
         class name and id. Ex: $ show BaseModel 1234-1234-1234."""
 
-        myArgs = arg.split()
-        if len(myArgs) == 0:
+        if len(arg) == 0:
             """ Check if argument was passed"""
             print("** class name missing **")
-        elif myArgs[0] not in HBNBCommand.__classes:
-            """ Check if class name argument was passed"""
-            print("** class doesn't exist ** ")
-        elif len(myArgs) < 2:
-            print("** instance id missing **")
         else:
-            class_name = myArgs[0]
-            instance_id = myArgs[1]
-
-            instance_Key = "{}.{}".format(class_name, instance_id)
-            class_instance = storage.all()
-
-            if instance_Key in class_instance:
-                print(class_instance[instance_Key])
+            myArgs = arg.split()
+            if myArgs[0] not in HBNBCommand.__classes:
+                """ Check if class name argument was passed"""
+                print("** class doesn't exist ** ")
+            elif len(myArgs) < 2:
+                print("** instance id missing **")
             else:
-                print("** no instance found **")
-
-
-
-
-    def do_show(self, args):
-        """ Method to show an individual object """
-        new = args.partition(" ")
-        c_name = new[0]
-        c_id = new[2]
-
-        # guard against trailing args
-        if c_id and ' ' in c_id:
-            c_id = c_id.partition(' ')[0]
-
-        if not c_name:
-            print("** class name missing **")
-            return
-
-        if c_name not in HBNBCommand.classes:
-            print("** class doesn't exist **")
-            return
-
-        if not c_id:
-            print("** instance id missing **")
-            return
-
-        key = c_name + "." + c_id
-        try:
-            print(storage._FileStorage__objects[key])
-        except KeyError:
-            print("** no instance found **")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                class_name = myArgs[0]
+                instance_id = myArgs[1]
+                instance_Key = "{}.{}".format(class_name, instance_id)
+                class_instance = storage.all()
+                if instance_Key in class_instance:
+                    print(class_instance[instance_Key])
+                else:
+                    print("** no instance found **")
 
     def do_destroy(self, arg):
         """
